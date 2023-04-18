@@ -1,5 +1,5 @@
 <?php
-
+namespace constants;
 class goodbye{
     const MESSAGE = "This is an const variable";
 

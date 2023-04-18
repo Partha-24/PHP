@@ -1,4 +1,16 @@
 <?php
+require 'classes.php';
+
+$apple = new classes\fruit();
+$banana = new classes\fruit();
+
+$apple->setName('Apple');
+$banana->setName('Banana');
+
+echo "a for ".$apple->getName('Apple')."\n";
+echo "b for ".$banana->getName('Banana')."\n";
+
+
 
 class car{
 
@@ -18,19 +30,19 @@ class car{
     }
 
     function get(){
-        echo $this->brand, " ", $this->model, " ", $this->color, " ", $this->tyre ,"<br>";
+        echo $this->brand, " ", $this->model, " ", $this->color, " ", $this->tyre ,"\n";
         echo "this is giving an error but still working : ", $this->x; 
     }
 
     function __destruct(){
-        echo "<br>destruct";
+        echo "\ndestruct";
     }
 }
 
 
 $M4 = new car('BMW', 'M4', 'Gray', 'MRF');
-$M4->$price = "$20000";
+$M4->$price = "$50000";
 $M4->get();
-echo "<br>Price : ", $M4->$price;
-echo "<br>color : ", $M4->color;
+echo "\nPriceeeeeeeeeeeeeee : ", $M4->$price;
+echo "\ncolor : ", $M4->color;
 ?>
