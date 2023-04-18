@@ -14,5 +14,6 @@
 * The `final` keyword can be used to prevent class inheritance or to prevent method overriding.
 * in php we can concat string in echo using `.` or `,`
 * abstraction is same as interface but we declare in same file i think so and abstract methods are same as pure virtual functions
-* 
+* associative array in php is same as map in other languages
+
 

@@ -5,6 +5,7 @@ class car{
     public $brand;
     public $model;
     public $color;
+    
 
     function __construct($brand, $model, $color, $tyre){
         $this->brand = $brand;
