@@ -22,13 +22,14 @@ $apple->setName('Apple');
 $banana->setName('Banana');
 $apple->color = 'Red';
 
-// echo $apple->color;
-// echo "<br>";
-// echo $apple->getName();
-// echo "<br>";
-// echo $banana->getName();
-// echo "<br>";
-// var_dump($apple instanceof fruit);
+echo "inside classes.php\n";
+echo $apple->color;
+echo "\n";
+echo $apple->getName();
+echo "\n";
+echo $banana->getName();
+echo "\n";
+var_dump($apple instanceof fruit);
 
 
 ?>

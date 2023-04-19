@@ -15,5 +15,5 @@
 * in php we can concat string in echo using `.` or `,`
 * abstraction is same as interface but we declare in same file i think so and abstract methods are same as pure virtual functions
 * associative array in php is same as map in other languages
-
+* if we use namespace inside some other file the echo's of the file whose namespace it is will be printed
 

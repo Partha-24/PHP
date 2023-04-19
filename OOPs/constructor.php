@@ -1,37 +1,24 @@
 <?php
-require 'classes.php';
-
-$apple = new classes\fruit();
-$banana = new classes\fruit();
-
-$apple->setName('Apple');
-$banana->setName('Banana');
-
-echo "a for ".$apple->getName('Apple')."\n";
-echo "b for ".$banana->getName('Banana')."\n";
-
-
 
 class car{
-
     public $brand;
     public $model;
     public $color;
     
-
     function __construct($brand, $model, $color, $tyre){
         $this->brand = $brand;
         $this->model = $model;
         $this->color = $color;
-        $this->tyre = $tyre;
-        $this->x=100;
+        // $this->tyre = $tyre;
+        // $this->x=100;
         /*this above line is giving an error because the variable x isn't declared outside the constructor
         but it is possible to declare a variable using this keyword inside constructor in php */ 
     }
 
     function get(){
-        echo $this->brand, " ", $this->model, " ", $this->color, " ", $this->tyre ,"\n";
-        echo "this is giving an error but still working : ", $this->x; 
+        // echo $this->brand, " ", $this->model, " ", $this->color, " ", $this->tyre ,"\n";
+        echo $this->brand, " ", $this->model, " ", $this->color, " ","\n";
+        // echo "this is giving an error but still working : ", $this->x; 
     }
 
     function __destruct(){
