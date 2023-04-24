@@ -26,4 +26,14 @@ $str2 = " Biswas";
 // . is used for concatination and .= is used for concatination assignment
 $str1.=$str2;
 echo "\n".$str1;
+
+
+$val = false;
+
+$val ? $val2 = "true" : $val2 ="false";
+
+// $val > 2 ? echo "its 2 " : echo "its not 2 " ; 
 ?>
+<?= $var ?>
+
+
