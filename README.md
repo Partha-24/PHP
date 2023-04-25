@@ -18,4 +18,12 @@
 * if we use namespace inside some other file the echo's of the file whose namespace it is will be printed
 * `mysql -u root -p` to use sql in terminal
 * A callback is a function which is passed as an argument into another function.
+* We can create connection with database using two methods in php `MySqli` & `PDO(php object data)`
+* Super Global Varibales
+  * `GLOBALS['']` is used to access global variables anywhare from the php script even inside functions
+  * `_SERVER` holds information about headers, paths, and script locations 
+  * `_REQUEST` is used to collect data after submitting an HTML form
+  * `_POST` is also used to collect data after submitting an HTML form
+  * `_GET` is also used to collect data after submitting an HTML form and this can also collect data which is sent in URL
+
 
