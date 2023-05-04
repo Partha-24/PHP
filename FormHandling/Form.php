@@ -18,13 +18,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = test_input($_POST["email"]);
     $website = test_input($_POST["website"]);
     $gender = test_input($_POST["gender"]);
-    $file_tmp =$_FILES['image']['tmp_name'];
-    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-    $newName = uniqid("IMG").'.'.$file_ext;
-    move_uploaded_file($file_tmp,"images/".$newName);
-    $insertDataQuery = "INSERT INTO form_data (first_name, last_name, email, website, gender, image) values ('".$fname."', '".$lname."', '".$email."', '".$website."', '".$gender."','".$newName."');";
-    $resultt = $mysqli->query($insertDataQuery);
-    header('location: Form.php');
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo '<script type="text/javascript">' . 
+        'document.getElementById("errors").innerHTML += "Invalid email";' .
+        '</script>';
+    }else{
+        $file_tmp =$_FILES['image']['tmp_name'];
+        $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+        $newName = uniqid("IMG").'.'.$file_ext;
+        move_uploaded_file($file_tmp,"images/".$newName);
+        $insertDataQuery = "INSERT INTO form_data (first_name, last_name, email, website, gender, image) values ('".$fname."', '".$lname."', '".$email."', '".$website."', '".$gender."','".$newName."');";
+        $resultt = $mysqli->query($insertDataQuery);
+        // header('location: Form.php');
+    }
 }
 
 function test_input($data){
@@ -49,7 +56,7 @@ $mysqli->close();
 </head>
 
 <body>
-
+<p id="errors"></p>
 <div id="wrapper">
     <div id="formDiv">
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
@@ -63,7 +70,7 @@ $mysqli->close();
                 <input class="inputFields" required type="text" name="email" placeholder="E-mail">
             </div>
             <div class="formInp">
-                <input class="inputFields" required type="text" name="website" placeholder="Website">
+                <input class="inputFields" type="text" name="website" placeholder="Website">
             </div>
             <div>
                 <input type="radio" name="gender" value="female">Female
