@@ -5,8 +5,13 @@
 <body>
 
 <div id="txtHint"><b>Person Records</b></div>
-<div id="addBtnDiv">
-    <Button id="newRecord">Add New</Button>
+<div id="box">
+    <div id="addBtnDiv">
+        <Button id="newRecord">Add New</Button>
+    </div>
+    <div id="search-bar">
+        <input type="text" id="search" autocomplete="off" placeholder="Search Records">
+    </div>
 </div>
 
 <div id="newRecordModal" class="modal">
@@ -223,7 +228,19 @@
                     alert("Invalid email address!");
                 }
             }
+        })
 
+        $("#search").on("keyup", function(){
+            var searchVal = $(this).val();
+            $.ajax({
+                url: "liveSearch.php",
+                type: "POST",
+                data: {searchKey: searchVal},
+                success : function(data){
+                    console.log(data);
+                    $("#table-data").html(data);
+                }
+            })
         })
     })
 </script>

@@ -9,9 +9,11 @@ $password = 'pphhpp';
 $database = 'test';
 $servername='localhost';
 
+$searchKey = $_POST["searchKey"];
+
 $mysqli = new mysqli($servername, $user, $password, $database);
 
-$fetchDataQuery = "SELECT * FROM person";
+$fetchDataQuery = "SELECT * FROM person WHERE first_name LIKE '%{$searchKey}%'";
 
 $result = $mysqli->query($fetchDataQuery);
 $output = "";

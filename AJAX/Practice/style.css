@@ -134,3 +134,20 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: bold;
 }
+
+#search{
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 5px;
+    background-color: aliceblue;
+    width: 200px;
+    height: 38px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+#box{
+    display: flex;
+    align-items: center;
+}
