@@ -2,6 +2,10 @@
 
 session_start();
 
+  if (isset($_SESSION['login'])) {
+    header('Location: ./');
+  }  
+
 $user = 'root';
 $password = 'pphhpp';
 $database = 'test';
@@ -13,10 +17,7 @@ $result = "";
 $fetchDataQuery = " SELECT * FROM user_registration";
 $result = $mysqli->query($fetchDataQuery);
 
-// while( $row = $result->fetch_array() ) {
-//   echo $row['name'] . " " . $row['email'] . " " . $row['password'];
-//   echo "<br />";
-// }
+
 
 $flag = 2;
 
@@ -36,8 +37,8 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
     echo "<script>alert('Wrong login or password');</script>";
     echo "<noscript>Wrong login or password</noscript>";
   }else if ($flag == 2) {
-    echo "<script>alert('Wrong login or password');</script>";
-    echo "<noscript>Wrong login or password</noscript>";
+    echo "<script>alert('User does not exist');</script>";
+    echo "<noscript>User does not exist</noscript>";
   }
 }
 

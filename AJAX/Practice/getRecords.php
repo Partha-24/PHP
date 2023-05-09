@@ -24,6 +24,7 @@ if(mysqli_num_rows($result) > 0){
                         <th>Last Name</th>
                         <th>Gender</th>
                         <th>Email</th>
+                        <th>User Type</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>';
@@ -35,7 +36,8 @@ if(mysqli_num_rows($result) > 0){
                         $output .= "<td>" . $row['last_name'] . "</td>";
                         $output .= "<td>" . $row['gender'] . "</td>";
                         $output .= "<td>" . $row['email'] . "</td>";
-                        $output .= "<td><button class='editBtn' data-id='{$row['id']}' data-fname='{$row['first_name']}' data-lname='{$row['last_name']}' data-gender='{$row['gender']}' data-email='{$row['email']}'>Edit</button></td>";
+                        $output .= "<td>" . $row['usertype'] . "</td>";
+                        $output .= "<td><button class='editBtn' data-id='{$row['id']}' data-fname='{$row['first_name']}' data-lname='{$row['last_name']}' data-gender='{$row['gender']}' data-email='{$row['email']}' data-usertype='{$row['usertype']}'>Edit</button></td>";
                         $output .= "<td><button class='deleteBtn' data-id='{$row['id']}'>Delete</button></td>";
                         $output .= "</tr>";
                     }
