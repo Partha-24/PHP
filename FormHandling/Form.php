@@ -19,19 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $website = test_input($_POST["website"]);
     $gender = test_input($_POST["gender"]);
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo '<script type="text/javascript">' . 
-        'document.getElementById("errors").innerHTML += "Invalid email";' .
-        '</script>';
-    }else{
-        $file_tmp =$_FILES['image']['tmp_name'];
-        $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-        $newName = uniqid("IMG").'.'.$file_ext;
-        move_uploaded_file($file_tmp,"images/".$newName);
-        $insertDataQuery = "INSERT INTO form_data (first_name, last_name, email, website, gender, image) values ('".$fname."', '".$lname."', '".$email."', '".$website."', '".$gender."','".$newName."');";
-        $resultt = $mysqli->query($insertDataQuery);
-        // header('location: Form.php');
-    }
+    $file_tmp =$_FILES['image']['tmp_name'];
+    $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+    $newName = uniqid("IMG").'.'.$file_ext;
+    move_uploaded_file($file_tmp,"images/".$newName);
+    
+    $insertDataQuery = "INSERT INTO form_data (first_name, last_name, email, website, gender, image) values ('".$fname."', '".$lname."', '".$email."', '".$website."', '".$gender."','".$newName."');";
+    $resultt = $mysqli->query($insertDataQuery);
 }
 
 function test_input($data){

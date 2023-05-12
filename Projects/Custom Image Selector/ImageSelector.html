@@ -1,0 +1,45 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="imageSelector.css" />
+    </head>
+    <body>
+        <div class="table">
+            <div class="table-cell">
+                <div class="modal">
+                    <div id="profile">
+                        <label id="label">Select an Image</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="file" id="mediaFile" />
+    </body>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+
+        $("#profile").on("click", function (e) {
+            $("#mediaFile").click();
+        });
+
+        $("#mediaFile").change(function (e) {
+            document.getElementById("label").innerHTML = "";
+            var input = e.target;
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function (e) {
+                console.log(reader.result);
+                $("#profile")
+                    .css("background-image", "url(" + reader.result + ")")
+                    .addClass("hasImage");
+                };
+            }
+        });
+    </script>
+</html>

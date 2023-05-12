@@ -1,7 +1,11 @@
 <?php 
 session_start();
 if(isset($_SESSION['userName'])){
-    header('Location: adminPage.php');
+    if($_SESSION['userType'] == "admin"){
+        header('Location: adminPage.php');
+    }else{
+        header('Location: normalUserPage.php');
+    }
 }
 ?>
 <html lang="en">
@@ -28,10 +32,18 @@ if(isset($_SESSION['userName'])){
             $emailPass = mysqli_fetch_assoc($query);
             $dbPass = $emailPass['password'];   
             $_SESSION['userName'] = $emailPass['first_name']." ".$emailPass['last_name'];
+            $_SESSION['firstName'] = $emailPass['first_name'];
+            $_SESSION['lastName'] = $emailPass['last_name'];
             $_SESSION['userEmail'] = $emailPass['email'];
+            $_SESSION['userGender'] = $emailPass['gender'];
+            $_SESSION['userType'] = $emailPass['usertype'];
             if($password == $dbPass){
                 echo "<script>alert('login successful')</script>";
-                header('Location: adminPage.php'); 
+                if($emailPass['usertype'] == 'admin'){
+                    header('Location: adminPage.php'); 
+                }else{
+                    header('Location: normalUserPage.php');
+                }
             }else{
                 echo "<script>alert('Password Incorrect')</script>";
             }

@@ -2,8 +2,14 @@
 
 session_start();
 if(isset($_SESSION['userName'])){
-    header('Location: adminPage.php');
+    if($_SESSION['userType'] == "admin"){
+        header('Location: adminPage.php');
+    }else{
+        header('Location: normalUserPage.php');
+    }
 }
+
+    
 
 ?>
 
@@ -16,9 +22,21 @@ if(isset($_SESSION['userName'])){
     <link rel="stylesheet" href="signup.css">
 </head>
 <body>
-    <form id="signUpForm">
+    <form id="signUpForm" method="post" enctype="multiport/form-data" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
         <div id="parentWrapper">
             <div id="wrapper">
+                <!-- <div id="imageDiv">
+                    <div class="table">
+                        <div class="table-cell">
+                            <div class="modal">
+                                <div id="profile">
+                                    <label id="label">Select an Image</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <input name="image" type="file" id="mediaFile" />
+                </div> -->
                 <div>
                     <input class="inputTextField" id="fname" required type="text" placeholder="First Name" name="firstName">
                 </div>
@@ -46,7 +64,9 @@ if(isset($_SESSION['userName'])){
 </body>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
+
+
+    <script type="text/javascript">
 
     $(document).ready(function(){
         $("#signUpForm").submit(function(e){
@@ -56,9 +76,15 @@ if(isset($_SESSION['userName'])){
             var email = $("#email").val();
             var gender = $('input[name="gender"]:checked').val();
             var password = $("#password").val();
+            
+            var formData = new FormData(this);
+            
             $.ajax({
                 url: "/AJAX/Practice/addRecord.php",
                 type: "POST",
+                // data: formData,
+                // contentType: false,
+                // processData: false,
                 data: {
                     first_name: fname,
                     last_name: lname,
@@ -81,9 +107,29 @@ if(isset($_SESSION['userName'])){
             })
         })
     })
+</script>
 
+<script>
+    $("#profile").on("click", function (e) {
+        $("#mediaFile").click();
+    });
 
+    $("#mediaFile").change(function (e) {
 
+        document.getElementById("label").innerHTML = "";
+        var input = e.target;
+        if (input.files && input.files[0]) {
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+            console.log(reader.result);
+            $("#profile")
+                .css("background-image", "url(" + reader.result + ")")
+                .addClass("hasImage");
+            };
+        }
+    });
 </script>
 
 </html>

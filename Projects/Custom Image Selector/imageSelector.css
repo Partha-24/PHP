@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*, *:before, *:after {
+    /* background-color: #e0e0e0; */
+    box-sizing: border-box;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#mediaFile {
+    position: absolute;
+    top: -1000px;
+}
+
+#profile {
+    font-family: 'Lato', sans-serif;
+    /*
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    top: -80px;
+    margin-bottom: -80px;
+    cursor: pointer;
+    display: table;
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+    
+    background: #e0e0e0;
+    box-shadow:  16px 16px 32px #bebebe,
+    -16px -16px 32px #ffffff; 
+    */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    top: -80px;
+    margin-bottom: -80px;
+    cursor: pointer;
+    background: #e0e0e0;
+    display: table;
+    background-size: cover;
+    background-position: center center;
+    box-shadow:  16px 16px 32px #bebebe,
+            -16px -16px 32px #ffffff; 
+}
+
+
+#profile label {
+    border-radius: 50%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 30px;
+    color: grey;
+    opacity: 1;
+    cursor: pointer;
+}
+
+

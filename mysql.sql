@@ -11,6 +11,7 @@ CREATE TABLE person(
 );
 
 alter table person add email varchar(50);
+alter table person add image varchar(100);
 alter table person drop column email;
 alter table person rename column first_name to firstName;
 alter table person modify column first_name integer;

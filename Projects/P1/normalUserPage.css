@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+body {
+    font-size: 16px;
+    color: #404040;
+    font-family: 'Lato', sans-serif;
+    background-image: linear-gradient(to bottom right, #ff9eaa 0% 65%, #e860ff 95% 100%);
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 2rem 0;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    /* max-width: 360px; */
+    width: 330px;
+    height: 540px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 2rem;
+    box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
+}
+
+.card .banner {
+    background-image: url("https://images.unsplash.com/photo-1545703549-7bdb1d01b734?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 11rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.card .banner svg {
+    background-color: #fff;
+    width: 8rem;
+    height: 8rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+    border-radius: 50%;
+    transform: translateY(50%);
+    transition: transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.card .banner svg:hover {
+    transform: translateY(50%) scale(1.3);
+}
+
+#box{
+    margin-top: 95px;
+}
+
+.card h2.name {
+    margin-top: 20px;
+    text-align: center;
+    padding: 0 2rem 0.5rem;
+    margin: 0;
+}
+
+.card .title {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0 2rem 1.2rem;
+}
+
+.card .actions {
+    padding: 0 2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    order: 99;
+}
+
+.card .actions .follow-info {
+    padding: 0 0 1rem;
+    display: flex;
+}
+.card .actions .follow-info h2 {
+    text-align: center;
+    width: 50%;
+    margin: 0;
+    box-sizing: border-box;
+}
+.card .actions .follow-info h2 a {
+    text-decoration: none;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.8rem;
+    transition: background-color 100ms ease-in-out;
+}
+.card .actions .follow-info h2 a span {
+    color: #1c9eff;
+    font-weight: bold;
+    transform-origin: bottom;
+    /* transform: scaleY(1.3); */
+    transition: color 100ms ease-in-out;
+}
+.card .actions .follow-info h2 a small {
+    color: #afafaf;
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+.card .actions .follow-info h2 a:hover {
+    background-color: #f2f2f2;
+}
+.card .actions .follow-info h2 a:hover span {
+    color: #007ad6;
+}
+
+#btnDivv{
+    display: flex;
+    justify-content: space-between;
+}
+
+.follow-btn button {
+    cursor: pointer;
+    color: white;
+    font: inherit;
+    font-weight: bold;
+    background-color: red;
+    width: 125px;
+    margin-bottom: 10px;
+    height: 60px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 15px;
+    transition: background-color 100ms ease-in-out, transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.card .actions .follow-btn button:hover {
+    transform: scale(1.1);
+}
+
+.card .actions .follow-btn button:active {
+    transform: scale(1);
+}
+
+#btnDiv{
+    display: grid;
+    grid-row: auto;
+}
+
+#editDetails{
+    width: 265px;
+    background-color: rgb(0, 195, 255);
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #92fffb;
+    margin: auto;
+    padding: 40px 20px;
+    border: 1px ;
+    width: 25%;
+    border-radius: 10px;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -37px;
+    margin-right: -10px;
+}
+
+.close:hover, .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#formDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.inputFields{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    width: 220px;
+    height: 35px;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;   
+}
+
+#formBtnDiv{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+}
+
+#editFormBtnDiv{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+}
+
+#update-button{
+    margin-top: 10px;
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 117, 140);
+    color: white;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+
+#btnnn{
+    margin-top: 10px;
+    width: 90px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 117, 140);
+    color: white;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+#changePassword{
+    /* margin-top: 10px; */
+    width: 90px;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+}
+
+
