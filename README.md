@@ -25,5 +25,11 @@
   * `_REQUEST` is used to collect data after submitting an HTML form
   * `_POST` is also used to collect data after submitting an HTML form
   * `_GET` is also used to collect data after submitting an HTML form and this can also collect data which is sent in URL
+* Design Patterns -  P
+  * Factory Pattern - Builds an onject not creates. In this we use interface and an function to create an object
+  * Adapter Pattern - this uses 
+  * Singleton Pattern - In order to limit the instantiation of a class to a single object, a singleton pattern in PHP is used.
+  * Observer Pattern - The PHP Observer pattern is used to alert the rest of the system about particular events in certain places.
+  * Decorater Patter - The Decorator pattern is used when you want to alter the character of an object at run-time   
 
 
